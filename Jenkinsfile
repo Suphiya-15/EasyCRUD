@@ -25,6 +25,10 @@ pipeline {
 }
               }
         }
+        stagr('S3-Deploy')
+        {
+            steps {
+                sh 'aws cp backend/target/studemy.jar s3://amazon-bucket-1569/studemtapp.jar
         stage('Deploy') {
             steps {
                 echo 'Deploying done....'
