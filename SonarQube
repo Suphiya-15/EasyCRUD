@@ -1,0 +1,14 @@
+
+*sonarqube steps:
+1. create ubuntu instance
+2. open 9000 port
+3. install SonarQube
+4. goto sonarqube home page
+3. create project
+4. generate token
+5. select build tool
+6. copy 4commmands and paste to jenkins server where pom.xml file present
+7. run command and check result on sonarqube.
+
+8. add command to jenkins file using pipeline syntax.
+
