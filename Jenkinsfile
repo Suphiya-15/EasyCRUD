@@ -35,7 +35,7 @@ pipeline {
        stage('S3-UPLOAD')
         {
             steps{
-                sh 'aws s3 cp target/student-registration-backend-0.0.1-SNAPSHOT.jar s3://amazon-demo-bucket-741/studentapp.jar '
+                sh 'aws s3 cp backend/target/student-registration-backend-0.0.1-SNAPSHOT.jar s3://amazon-demo-bucket-741/studentapp.jar '
             }
         }
         stage('Deploy') {
