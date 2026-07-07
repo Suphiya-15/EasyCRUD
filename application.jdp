@@ -19,14 +19,14 @@ stage('BACKEND-DOCKER-BUILD') {
     }
 }
 
-stage('DOCKER-PUSH') {
-    steps {
-        sh '''
-        docker push suphiya15/easy-frontend:latest
-        docker push suphiya15/easy-backend:latest
-        '''
-    }
-}
+//stage('DOCKER-PUSH') {
+//    steps {
+ //       sh '''
+  //      docker push suphiya15/easy-frontend:latest
+  //      docker push suphiya15/easy-backend:latest
+ //       '''
+ //   }
+//}
         stage('DOCKER-CLEAN') {
             steps {
                 sh '''docker rmi suphiya15/easy-frontend:latest
