@@ -4,19 +4,19 @@ pipeline {
         stage('FRONTEND-DOCKER-BUILD') {
             steps {
                 sh '''cd frontend
-                docker build -t suphiya-15/easy-frontend:latest .'''
+                docker build -t Suphiya-15/easy-frontend:latest .'''
             }
         }
         stage('BACKEND-DOCKER-BUILD') {
             steps {
                 sh '''cd backend
-                docker build -t suphiya-15/easy-backend:latest .'''
+                docker build -t Suphiya-15/easy-backend:latest .'''
             }
         }
          stage('DOCKER-PUSH') {
             steps {
-                sh '''docker push suphiya-15/easy-frontend:latest
-                docker push suphiys-15/easy-backend:latest'''
+                sh '''docker push Suphiya-15/easy-frontend:latest
+                docker push Suphiya-15/easy-backend:latest'''
             }
         }
         stage('DOCKER-CLEAN') {
