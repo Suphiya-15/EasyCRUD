@@ -2,7 +2,6 @@ package com.student.registration.student_registration_backend.controller;
 
 import com.student.registration.student_registration_backend.model.User;
 import com.student.registration.student_registration_backend.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +13,11 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
+   private final UserRepository userRepository;
+
+   public UserController(UserRepository userRepository) {
+      this.userRepository = userRepository;
+}
 
     @PostMapping("/register")
     public User registerUser(@RequestBody User user) {
