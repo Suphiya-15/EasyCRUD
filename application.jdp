@@ -4,13 +4,13 @@ pipeline {
         stage('FRONTEND-DOCKER-BUILD') {
             steps {
                 sh '''cd frontend
-                docker build -t easy-frontend:latest'''
+                docker build -t easy-frontend:latest .'''
             }
         }
         stage('BACKEND-DOCKER-BUILD') {
             steps {
                 sh '''cd backend
-                docker build -t easy-backend:latest'''
+                docker build -t easy-backend:latest .'''
             }
         }
          stage('DOCKER-PUSH') {
