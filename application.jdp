@@ -2,23 +2,31 @@ pipeline {
        agent any
        stages{
         stage('FRONTEND-DOCKER-BUILD') {
-            steps {
-                sh '''cd frontend
-                docker build -t suphiya15/easy-frontend:latest .'''
-            }
-        }
-        stage('BACKEND-DOCKER-BUILD') {
-            steps {
-                sh '''cd backend
-                docker build -t suphiya15/easy-backend:latest .'''
-            }
-        }
-         stage('DOCKER-PUSH') {
-            steps {
-                sh '''docker push suphiya15/easy-frontend:latest
-                docker push suphiya15/easy-backend:latest'''
-            }
-        }
+    steps {
+        sh '''
+        cd frontend
+        docker build -t suphiya15/easy-frontend:latest .
+        '''
+    }
+}
+
+stage('BACKEND-DOCKER-BUILD') {
+    steps {
+        sh '''
+        cd backend
+        docker build -t suphiya15/easy-backend:latest .
+        '''
+    }
+}
+
+stage('DOCKER-PUSH') {
+    steps {
+        sh '''
+        docker push suphiya15/easy-frontend:latest
+        docker push suphiya15/easy-backend:latest
+        '''
+    }
+}
         stage('DOCKER-CLEAN') {
             steps {
                 sh '''docker rmi suphiya15/easy-frontend:latest
