@@ -22,7 +22,7 @@ pipeline {
         stage('DOCKER-CLEAN') {
             steps {
                 sh '''docker rmi suphiya15/easy-frontend:latest
-                docker rmi suphiya/easy-backend:latest'''
+                docker rmi suphiya15/easy-backend:latest'''
             }
         }
 
