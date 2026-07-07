@@ -1,0 +1,35 @@
+pipeline {
+       agent any
+       stages{
+        stage('FRONTEND-DOCKER-BUILD') {
+            steps {
+                sh '''cd frontend
+                docker build -t easy-frontend:latest'''
+            }
+        }
+        stage('BACKEND-DOCKER-BUILD') {
+            steps {
+                sh '''cd backend
+                docker build -t easy-backend:latest'''
+            }
+        }
+         stage('DOCKER-PUSH') {
+            steps {
+                sh '''docker push easy-frontend:latest
+                docker push easy-backend:latest'''
+            }
+        }
+        stage('DOCKER-CLEAN') {
+            steps {
+                sh '''docker rmi easy-frontend:latest
+                docker rmi easy-backend:latest'''
+            }
+        }
+
+        stage('DEPLOY') {
+            steps {
+                sh 'kubectl apply -f simple-deploy'
+            }
+        }
+       } 
+       }
