@@ -4,24 +4,37 @@ metadata:
   name: backend-pod
   labels:
     app: backend-app
+
 spec:
   containers:
     - name: backend-app
       image: shubhamkalsait1/easy-backend:latest
+
       ports:
         - containerPort: 8080
 
+      env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:mariadb://db-svc:3306/student_db"
+
+        - name: SPRING_DATASOURCE_USERNAME
+          value: "root"
+
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: "cloudblitz"
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: backend-svc
+
 spec:
   selector:
     app: backend-app
+
   ports:
-  - port: 8080
-    targetPort: 8080
-    protocol: TCP
-    name: java
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+
   type: NodePort
