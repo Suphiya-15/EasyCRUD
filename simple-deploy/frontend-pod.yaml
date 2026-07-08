@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend-app
-          image: shubhamkalsait1/easy-frontend:latest
+          image: suphiya15/easy-frontend:latest
           ports:
             - containerPort: 80
 ---
